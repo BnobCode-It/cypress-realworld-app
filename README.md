@@ -17,7 +17,7 @@
   </a>
 
   <a href="https://codecov.io/gh/cypress-io/cypress-realworld-app">
-    <img src="https://codecov.io/gh/cypress-io/cypress-realworld-app/branch/develop/graph/badge.svg" />
+    <img src="https://codecov.io/gh/cypress-realworld-app/branch/develop/graph/badge.svg" />
   </a>
 
   <a href="https://percy.io/cypress-io/cypress-realworld-app">
