@@ -164,7 +164,7 @@ export const authMachine = Machine<AuthMachineContext, AuthMachineSchema, AuthMa
             throw new Error("Username or password is invalid");
           });
       },
-      getOktaUserProfile: /* istanbul ignore next */ (ctx, event: any) => {
+      getOktaUserProfile: (ctx, event: any) => {
         // Map Okta User fields to our User Model
         const user = {
           id: event.user.sub,
@@ -183,7 +183,7 @@ export const authMachine = Machine<AuthMachineContext, AuthMachineSchema, AuthMa
         const resp = await httpClient.get(`http://localhost:${backendPort}/checkAuth`);
         return resp.data;
       },
-      getGoogleUserProfile: /* istanbul ignore next */ (ctx, event: any) => {
+      getGoogleUserProfile: (ctx, event: any) => {
         // Map Google User fields to our User Model
         const user = {
           id: event.user.googleId,
@@ -198,7 +198,7 @@ export const authMachine = Machine<AuthMachineContext, AuthMachineSchema, AuthMa
 
         return Promise.resolve({ user });
       },
-      getAuth0UserProfile: /* istanbul ignore next */ (ctx, event: any) => {
+      getAuth0UserProfile: (ctx, event: any) => {
         // Map Auth0 User fields to our User Model
         const user = {
           id: event.user.sub,
@@ -224,7 +224,7 @@ export const authMachine = Machine<AuthMachineContext, AuthMachineSchema, AuthMa
         localStorage.removeItem("authState");
         return await httpClient.post(`http://localhost:${backendPort}/logout`);
       },
-      getCognitoUserProfile: /* istanbul ignore next */ (ctx, event: any) => {
+      getCognitoUserProfile: (ctx, event: any) => {
         // Map Cognito User fields to our User Model
         const ourUser = {
           id: event.userSub,
@@ -240,7 +240,6 @@ export const authMachine = Machine<AuthMachineContext, AuthMachineSchema, AuthMa
     actions: {
       redirectHomeAfterLogin: async (ctx, event) => {
         if (history.location.pathname === "/signin") {
-          /* istanbul ignore next */
           window.location.pathname = "/";
         }
       },
